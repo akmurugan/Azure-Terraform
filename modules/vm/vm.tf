@@ -2,8 +2,8 @@ resource "azurerm_windows_virtual_machine" "vm" {
   admin_password        = var.admin_password
   admin_username        = var.admin_username
   location              = var.location
-  count                 = "2"
-  name                  = "${var.name}-${count.index+1}"
+  count                 = var.instance_count
+  name                  = "${var.name}-${count.index}"
   network_interface_ids = [element(azurerm_network_interface.ni.*.id, count.index)]
   resource_group_name   = var.resource_group_name
   size                  = var.size
@@ -26,9 +26,9 @@ resource "azurerm_windows_virtual_machine" "vm" {
 }
 
 resource "azurerm_network_interface" "ni" {
-  count               = "2"  
+ 
   location            = var.location
-  name                = "${var.name}-${count.index+1}" 
+  name                = var.name
   resource_group_name = var.resource_group_name
 
   ip_configuration {
@@ -38,5 +38,4 @@ resource "azurerm_network_interface" "ni" {
     private_ip_address_allocation = "Dynamic"
   }
 }
-
 

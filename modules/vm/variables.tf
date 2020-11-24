@@ -17,7 +17,10 @@ variable "name" {
 variable "resource_group_name" {
   default = ""
 }
-
+variable "instance_count" {
+  type = string
+  default = "1"
+}
 variable "size" {
   default = ""
 }
