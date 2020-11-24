@@ -8,10 +8,12 @@ Before you begin, you will need to set up the following:
  * Install Terraform
 
  Step -1 : Creating Modules
+ 
    This Terraform exercises consist of Two modules:- 
    1.Keyvault Module, 2. VM's Module
     
-    We will start by creating a module folder and then reference that module in another Terraform configuration. We will begin with a folder hierarchy like the following:
+    
+    We will start by creating a modules folder and then reference that module in another Terraform configuration. We will begin with a folder hierarchy like the following:
 
 Folder structure below:
   Azure-Terraform                                  
